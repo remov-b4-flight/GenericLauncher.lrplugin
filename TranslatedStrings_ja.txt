@@ -1,0 +1,2 @@
+"$$$/glaunch/processing=処理中 : "
+"$$$/glaunch/description=選択中の写真のマスターファイルに指定したコマンドを実行します"
