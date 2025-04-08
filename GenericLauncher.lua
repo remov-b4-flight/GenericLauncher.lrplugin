@@ -16,6 +16,7 @@ Logger:enable('logfile')
 
 local CurrentCatalog = LrApplication.activeCatalog()
 local esc = "'"
+local spc = " "
 --Main part of this plugin.
 LrTasks.startAsyncTask( function ()
 	local ProgressBar = LrProgress(
@@ -25,11 +26,11 @@ LrTasks.startAsyncTask( function ()
 	local SelectedPhotos = CurrentCatalog:getTargetPhotos()
 	local countPhotos = #SelectedPhotos
 	--loops photos in selected
-	CurrentCatalog:withWriteAccessDo('Color Flag',function()
+	CurrentCatalog:withWriteAccessDo(prefs.Title,function()
 		for i,PhotoIt in ipairs(SelectedPhotos) do
 
 			local FilePath = PhotoIt:getRawMetadata('path')
-			local CommandLine = TagCommand .. esc .. FilePath .. esc
+			local CommandLine = TagCommand .. spc .. esc .. FilePath .. esc
 			Logger:debug(CommandLine)
 			LrTasks.execute(CommandLine)
 

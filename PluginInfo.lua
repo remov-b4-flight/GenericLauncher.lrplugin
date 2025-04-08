@@ -34,7 +34,7 @@ function PluginInfo.sectionsForTopOfDialog( viewFactory, propertyTable )
 			},
 			viewFactory:row {
 				viewFactory:static_text {title = LOC '$$$/glaunch/CommandLine=Command Line',},
-				viewFactory:edit_field {value = bind 'CommandLine',},
+				viewFactory:edit_field {width_in_chars = 32, value = bind 'CommandLine',},
 			},
 		},
 	}

@@ -15,6 +15,8 @@ return {
 		file = 'GenericLauncher.lua',
 		enabledWhen = 'photosAvailable',},
 	},
+	LrPluginInfoProvider = 'PluginInfo.lua',
+	LrInitPlugin = 'PluginInit.lua',
 	VERSION = { major=0, minor=0, revision=1, build=0, },
 
 }
