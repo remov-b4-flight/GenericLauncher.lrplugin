@@ -5,6 +5,10 @@
 ---------------------------------------------------------]]
 local prefs = import 'LrPrefs'.prefsForPlugin() 
 
-if prefs.isRevert == nil then
-	prefs.isRevert = false
+if prefs.Title == nil then
+	prefs.Title = 'GenericLauncher'
+end
+
+if prefs.CommandLine == nil then
+	prefs.CommandLine = "/usr/bin/touch"
 end
