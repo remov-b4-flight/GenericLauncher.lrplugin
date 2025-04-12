@@ -7,12 +7,12 @@
 local LrApplication = import 'LrApplication'
 local LrTasks = import 'LrTasks'
 local LrProgress = import 'LrProgressScope'
-local LrLogger = import 'LrLogger'
 local prefs = import 'LrPrefs'.prefsForPlugin()
 local PluginTitle = prefs.Title
 local TagCommand = prefs.CommandLine
-local Logger = LrLogger(PluginTitle)
-Logger:enable('logfile')
+--local LrLogger = import 'LrLogger'
+--local Logger = LrLogger(PluginTitle)
+--Logger:enable('logfile')
 
 local CurrentCatalog = LrApplication.activeCatalog()
 local esc = "'"
@@ -31,7 +31,7 @@ LrTasks.startAsyncTask( function ()
 
 			local FilePath = PhotoIt:getRawMetadata('path')
 			local CommandLine = TagCommand .. spc .. esc .. FilePath .. esc
-			Logger:debug(CommandLine)
+--			Logger:debug(CommandLine)
 			LrTasks.execute(CommandLine)
 
 			ProgressBar:setPortionComplete(i,countPhotos)
