@@ -28,7 +28,9 @@ LrTasks.startAsyncTask( function ()
 	--loops photos in selected
 	CurrentCatalog:withWriteAccessDo(prefs.Title,function()
 		for i,PhotoIt in ipairs(SelectedPhotos) do
-
+			if(ProgressBar:isCanceled()) then
+				break
+			end
 			local FilePath = PhotoIt:getRawMetadata('path')
 			local CommandLine = TagCommand .. spc .. esc .. FilePath .. esc
 --			Logger:debug(CommandLine)
@@ -37,6 +39,6 @@ LrTasks.startAsyncTask( function ()
 			ProgressBar:setPortionComplete(i,countPhotos)
 		end --end of for photos loop
 	end ) --end of withWriteAccessDo
-ProgressBar:done()
+	ProgressBar:done()
 end ) --end of startAsyncTask function()
 return
