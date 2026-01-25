@@ -8,7 +8,8 @@ local LrApplication = import 'LrApplication'
 local LrTasks = import 'LrTasks'
 local LrProgress = import 'LrProgressScope'
 local prefs = import 'LrPrefs'.prefsForPlugin()
-local PluginTitle = prefs.Title
+local Info = require 'Info.lua'
+local PluginTitle = Info.LrPluginName
 local TagCommand = prefs.CommandLine
 --local LrLogger = import 'LrLogger'
 --local Logger = LrLogger(PluginTitle)
@@ -17,7 +18,7 @@ local TagCommand = prefs.CommandLine
 local CurrentCatalog = LrApplication.activeCatalog()
 local esc = "'"
 local spc = " "
---Main part of this plugin.
+-- Main part of this plugin.
 LrTasks.startAsyncTask( function ()
 	local ProgressBar = LrProgress(
 		{title = PluginTitle}
@@ -25,8 +26,8 @@ LrTasks.startAsyncTask( function ()
 
 	local SelectedPhotos = CurrentCatalog:getTargetPhotos()
 	local countPhotos = #SelectedPhotos
-	--loops photos in selected
-	CurrentCatalog:withWriteAccessDo(prefs.Title,function()
+	-- loops photos in selected
+	CurrentCatalog:withWriteAccessDo(PluginTitle, function()
 		for i,PhotoIt in ipairs(SelectedPhotos) do
 			if(ProgressBar:isCanceled()) then
 				break
@@ -37,8 +38,8 @@ LrTasks.startAsyncTask( function ()
 			LrTasks.execute(CommandLine)
 
 			ProgressBar:setPortionComplete(i,countPhotos)
-		end --end of for photos loop
+		end -- end of for photos loop
 	end ) --end of withWriteAccessDo
 	ProgressBar:done()
-end ) --end of startAsyncTask function()
+end ) -- end of startAsyncTask function()
 return

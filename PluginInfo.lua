@@ -12,11 +12,6 @@ local prefs = import 'LrPrefs'.prefsForPlugin()
 local PluginInfo = {}
 local CurrentCatalog = LrApplication.activeCatalog()
 
-function PluginInfo.startDialog( propertyTable )
-	propertyTable.CommandLine = prefs.CommandLine
-	propertyTable.Title = prefs.Title
-end
-
 function PluginInfo.endDialog( propertyTable )
 	prefs.CommandLine = propertyTable.CommandLine
 	prefs.Title = propertyTable.Title
@@ -28,10 +23,6 @@ function PluginInfo.sectionsForTopOfDialog( viewFactory, propertyTable )
 			title = 'GenericLauncher',
 			synopsis = LOC '$$$/glaunch/description=Set caption to collection name contained by.',
 			bind_to_object = propertyTable,
-			viewFactory:row {
-				viewFactory:static_text {title = LOC '$$$/c2cap/Title=Title of process',},
-				viewFactory:edit_field {value = bind 'Title',},
-			},
 			viewFactory:row {
 				viewFactory:static_text {title = LOC '$$$/glaunch/CommandLine=Command Line',},
 				viewFactory:edit_field {width_in_chars = 32, value = bind 'CommandLine',},

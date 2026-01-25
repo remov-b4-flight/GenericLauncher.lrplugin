@@ -5,10 +5,10 @@
 
 return {
 
-	LrSdkVersion = 3.0,
+	LrSdkVersion = 6.0,
 
 	LrToolkitIdentifier = 'cx.ath.remov-b4-flight.genericlauncher',
-	LrPluginName = 'Generic Launcher',
+	LrPluginName = 'GenericLauncher',
 	LrPluginInfoUrl='https://twitter.com/remov_b4_flight',
 	LrLibraryMenuItems = { 
 		{title = 'Launch',
@@ -17,6 +17,6 @@ return {
 	},
 	LrPluginInfoProvider = 'PluginInfo.lua',
 	LrInitPlugin = 'PluginInit.lua',
-	VERSION = { major=0, minor=2, revision=1, build=6, },
+	VERSION = { major=0, minor=2, revision=1, build=7, },
 
 }
